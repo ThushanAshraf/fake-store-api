@@ -16,7 +16,7 @@ const port = process.env.PORT || 6400;
 
 //routes
 const productRoute = require('./routes/product');
-const homeRoute = require('./routes/home');
+// const homeRoute = require("./routes/home");
 const cartRoute = require('./routes/cart');
 const userRoute = require('./routes/user');
 const authRoute = require('./routes/auth');
@@ -34,7 +34,10 @@ app.set('views', 'views');
 
 app.disable('view cache');
 
-app.use('/', homeRoute);
+// app.use("/", homeRoute);
+app.get("/", (req, res) => {
+  res.json({ message: "Fake Store API is running!" });
+});
 app.use('/products', productRoute);
 app.use('/carts', cartRoute);
 app.use('/users', userRoute);
